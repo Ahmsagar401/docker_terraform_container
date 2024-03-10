@@ -1,5 +1,5 @@
 pipeline {
-    agent { Dockerfile true }
+    agent { dockerfile true }
     stages {
         stage('Checkout') {
             steps {
@@ -20,13 +20,6 @@ pipeline {
             }
         }
         stage('Terraform Apply') {
-            steps {
-                script {
-                    sh 'terraform apply tfplan'
-                }
-            }
-        }
-         stage('Terraform Apply') {
             steps {
                 script {
                     sh 'terraform apply tfplan'
