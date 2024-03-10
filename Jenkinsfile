@@ -1,15 +1,15 @@
 pipeline {
     agent { dockerfile true }
     stages {
+        stage('Test') {
+            steps {
+                sh 'terraform --version'
+            }
+        }
         stage('Checkout') {
             steps {
                 sh 'rm -rf docker_terraform_repo'
                 sh 'git clone https://github.com/Ahmsagar401/docker_terraform_repo.git'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'terraform --version'
             }
         }
         stage('Terraform Plan') {
