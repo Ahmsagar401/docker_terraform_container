@@ -12,6 +12,13 @@ pipeline {
                 sh 'git clone https://github.com/Ahmsagar401/docker_terraform_repo.git'
             }
         }
+        stage('Terraform Init') {
+            steps {
+                script {
+                    sh 'terraform init'
+                }
+            }
+        }
         stage('Terraform Plan') {
             steps {
                 script {
