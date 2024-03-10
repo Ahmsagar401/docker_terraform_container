@@ -6,5 +6,6 @@ pipeline {
                 sh 'terraform --version'
             }
         }
+        stage('
     }
 }
