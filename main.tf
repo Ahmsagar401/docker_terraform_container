@@ -29,6 +29,6 @@ resource "aws_instance" "example" {
   instance_type          = "t2.micro"
   security_groups        = [aws_security_group.allow_SG.name]
   tags = {
-    Name = "docker-server"
+    Name = "docker-server3"
   }
 }
