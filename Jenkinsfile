@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'rm -rf docker_terraform_container'
-                sh 'git clone https://github.com/Ahmsagar401/docker_repo.git'
+                sh 'rm -rf docker_terraform_repo'
+                sh 'git clone https://github.com/Ahmsagar401/docker_terraform_repo.git'
             }
         }
         stage('Test') {
@@ -12,6 +12,26 @@ pipeline {
                 sh 'terraform --version'
             }
         }
-        stage('
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    sh 'terraform plan -out=tfplan'
+                }
+            }
+        }
+        stage('Terraform Apply') {
+            steps {
+                script {
+                    sh 'terraform apply tfplan'
+                }
+            }
+        }
+         stage('Terraform Apply') {
+            steps {
+                script {
+                    sh 'terraform apply tfplan'
+                }
+            }
+        }   
     }
 }
